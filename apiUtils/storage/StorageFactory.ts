@@ -1,3 +1,4 @@
+import { AzureStorage } from './AzureStorage';
 import { LocalStorage } from './LocalStorage';
 import { StorageInterface } from './StorageInterface';
 import { SupabaseStorage } from './SupabaseStorage';
@@ -12,6 +13,8 @@ export class StorageFactory {
         StorageFactory.instance = new SupabaseStorage();
       } else if (storageType === 'local') {
         StorageFactory.instance = new LocalStorage();
+      } else if (storageType === 'azure') {
+        StorageFactory.instance = new AzureStorage();
       } else {
         throw new Error('Unsupported storage type');
       }

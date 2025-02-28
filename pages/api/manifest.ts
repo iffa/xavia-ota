@@ -188,12 +188,8 @@ async function putUpdateInResponseAsync(
     signature = serializeDictionary(dictionary);
   }
 
+  // https://docs.expo.dev/technical-specs/expo-updates-1/#extensions-body
   const assetRequestHeaders: { [key: string]: object } = {};
-  [...manifest.assets, manifest.launchAsset].forEach((asset) => {
-    assetRequestHeaders[asset.key] = {
-      'test-header': 'test-header-value',
-    };
-  });
 
   const form = new FormData();
   form.append('manifest', JSON.stringify(manifest), {

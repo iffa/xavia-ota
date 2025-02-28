@@ -10,7 +10,7 @@ export class ConfigHelper {
   }): Promise<any> {
     try {
       const zip = await ZipHelper.getZipFromStorage(updateBundlePath);
-      const configBuffer = await ZipHelper.getFileFromZip(zip, 'expoconfig.json');
+      const configBuffer = await ZipHelper.getFileFromZip(zip, 'expoConfig.json');
       return JSON.parse(configBuffer.toString('utf-8'));
     } catch (error) {
       throw new Error(
